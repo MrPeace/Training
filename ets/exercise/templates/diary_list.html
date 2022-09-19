@@ -6,6 +6,12 @@
 </head>
 <body>
     <table border="1">
+        <tr>
+            <td>Date</td>
+            <td>Weight</td>
+            <td>Minutes</td>
+            <td>Activity</td>
+        </tr>
         {% for x in diary %}
             <tr>
                 <td>{{ x.diary_date }}</td>
@@ -15,5 +21,8 @@
             </tr>
         {% endfor %}
     </table>
+    <p>
+        <a href="diary/create/">Create Diary Entry</a>
+    </p>
 </body>
 </html>
