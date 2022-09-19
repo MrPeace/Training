@@ -5,6 +5,15 @@
     <title>Index</title>
 </head>
 <body>
-    Any new message 20220919
+    <table border="1">
+        {% for x in diary %}
+            <tr>
+                <td>{{ x.diary_date }}</td>
+                <td>{{ x.diary_weight }}</td>
+                <td>{{ x.diary_duration }}</td>
+                <td>{{ x.diary_activity }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
