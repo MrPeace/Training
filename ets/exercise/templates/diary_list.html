@@ -11,6 +11,7 @@
             <td>Weight</td>
             <td>Minutes</td>
             <td>Activity</td>
+            <td>Action</td>
         </tr>
         {% for x in diary %}
             <tr>
@@ -18,6 +19,7 @@
                 <td>{{ x.diary_weight }}</td>
                 <td>{{ x.diary_duration }}</td>
                 <td>{{ x.diary_activity }}</td>
+                <td><a href="diary/create/diary_delete_record/{{ x.id }}">Delete</a></td>
             </tr>
         {% endfor %}
     </table>

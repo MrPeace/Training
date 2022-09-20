@@ -25,3 +25,9 @@ def diary_create_record(request):
     diary = Diary(diary_date=x, diary_weight=w, diary_duration=y, diary_activity=z)
     diary.save()
     return HttpResponseRedirect(reverse('diary_list'))
+
+
+def dairy_delete_record(request, id):
+    d = Diary.objects.get(id=id)
+    d.delete()
+    return HttpResponseRedirect(reverse('diary_list'))
