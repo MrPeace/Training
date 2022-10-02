@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diary</title>
+</head>
+<body>
+  <form action="diary_create_record/" method="post">
+    {% csrf_token %}
+    Workout Date:<br>
+    <input name="diary_date">
+    <br><br>
+    Workout Weight:<br>
+    <input name="diary_weight">
+    <br><br>
+    Workout Duration:<br>
+    <input name="diary_duration">
+    <br><br>
+    Workout Activity:<br>
+    <input name="diary_activity">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
