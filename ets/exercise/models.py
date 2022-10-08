@@ -7,11 +7,17 @@ class Diary(models.Model):
     diary_duration = models.IntegerField(default=0)
     diary_activity = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.diary_activity
+
 
 class Exercise(models.Model):
     exercise_code = models.CharField(max_length=6)
     exercise_name = models.CharField(max_length=20)
     exercise_steps = models.TextField()
+
+    def __str__(self):
+        return self.exercise_code
 
 
 class Workout(models.Model):
@@ -20,3 +26,6 @@ class Workout(models.Model):
     reps = models.IntegerField(default=0)
     diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.diary.diary_activity
