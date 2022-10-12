@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 
 
@@ -8,7 +9,7 @@ class Diary(models.Model):
     diary_activity = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.diary_activity
+        return self.diary_activity  + ' ' + str(self.diary_date)
 
 
 class Exercise(models.Model):
@@ -21,11 +22,16 @@ class Exercise(models.Model):
 
 
 class Workout(models.Model):
+    diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     weight = models.IntegerField(default=0)
     sets = models.IntegerField(default=0)
     reps = models.IntegerField(default=0)
-    diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    notes = models.CharField(max_length=40, null=True)
 
     def __str__(self):
         return self.diary.diary_activity
+
+
+class Dummy(models.Model):
+    field1 = models.CharField(max_length=20)
