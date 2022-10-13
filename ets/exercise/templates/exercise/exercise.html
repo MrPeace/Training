@@ -11,12 +11,17 @@
     <div class="card card-body">
       <table class="table">
         <tr>
-          <th>Exercise</th>
-          <th>Weight</th>
-          <th>Sets</th>
-          <th>Reps</th>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Steps</th>
         </tr>
-        
+        {% for e in exercises %}
+          <tr>
+            <td>{{e.exercise_code}}</td>
+            <td>{{e.exercise_name}}</td>
+            <td>{{e.exercise_steps}}</td>
+          </tr>
+        {% endfor %} 
       </table>
     </div>
   </div>
