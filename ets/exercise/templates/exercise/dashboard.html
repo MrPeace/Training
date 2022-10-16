@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div class="col-md-5">
-		<h5>DIARY:</h5>
+		<h5>LAST 7 DIARY ENTRIES:</h5>
 		<hr>
 		<div class="card card-body">
 			<a class="btn btn-primary  btn-sm btn-block" href="">Create Diary Entry</a>
@@ -19,18 +19,27 @@
 					<th>Duration</th>
 					<th>Activity</th>
 				</tr>
-
+				{% for d in diarys %}
+				<tr>
+					<td></td>
+					<td>{{d.diary_date}}</td>
+					<td>{{d.diary_duration}}</td>
+					<td>{{d.diary_activity}}</td>
+				</tr>
+				{% endfor %}
 			</table>
 		</div>
 	</div>
 
 	<div class="col-md-7">
-		<h5>LAST WORKOUT</h5>
+		<h5>LAST WORKOUT RECORDED</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Exercise Entry</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="">Record Workout details</a>
 			<table class="table table-sm">
 				<tr>
+					<th></th>
+					<th>Date</th>
 					<th>Exercise</th>
 					<th>Weight</th>
 					<th>Sets</th>
@@ -38,7 +47,18 @@
 					<th>Update</th>
 					<th>Remove</th>
 				</tr>
-		
+			{% for w in workouts %}
+				<tr>
+					<td></td>
+					<td>{{w.diary.diary_date}}</td>
+					<td>{{w.exercise}}</td>
+					<td>{{w.weight}}</td>
+					<td>{{w.sets}}</td>
+					<td>{{w.reps}}</td>
+					<td><a href="">Update</a></td>
+					<td><a href="">Delete</a></td>
+				</tr>
+				{% endfor %}
 			</table>
 		</div>
 	</div>
