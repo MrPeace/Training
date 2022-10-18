@@ -30,8 +30,4 @@ class Workout(models.Model):
     notes = models.CharField(max_length=40, null=True)
 
     def __str__(self):
-        return self.diary.diary_activity
-
-
-class Dummy(models.Model):
-    field1 = models.CharField(max_length=20)
+        return self.diary.diary_activity  + ' ' + str(self.diary.diary_date)

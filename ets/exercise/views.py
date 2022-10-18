@@ -7,7 +7,7 @@ from .models import *
 
 def dashboard(request):
     diarys = Diary.objects.all().order_by('-diary_date')[:7]
-    workouts = Workout.objects.all()[:1]
+    workouts = Workout.objects.all().order_by('-diary__diary_date')[:1]
     context = {'diarys':diarys
     , 'workouts': workouts}
     return render(request, 'exercise/dashboard.html', context)
