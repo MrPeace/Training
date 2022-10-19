@@ -1,3 +1,4 @@
+from contextlib import redirect_stderr
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
@@ -7,9 +8,23 @@ from .models import *
 
 def dashboard(request):
     diarys = Diary.objects.all().order_by('-diary_date')[:7]
+
+    walks = Diary.objects.filter(diary_activity='Walk').count()
+
+    rides = Diary.objects.filter(diary_activity='Bike').count()
+
+    lifts = Diary.objects.filter(diary_activity='Lift').count()
+
+    rests = Diary.objects.filter(diary_activity='Rest').count()
+
     workouts = Workout.objects.all().order_by('-diary__diary_date')[:1]
     context = {'diarys':diarys
-    , 'workouts': workouts}
+    , 'workouts': workouts
+    , 'walks':walks
+    , 'rides':rides
+    , 'lifts':lifts
+    , 'rests':rests
+    }
     return render(request, 'exercise/dashboard.html', context)
 
 
